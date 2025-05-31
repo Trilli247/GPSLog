@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPSBarLog</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>GPSBarLog</h1>
+  </header>
+  <main>
+    <section id="setup">
+      <h2>Barinformationen</h2>
+      <input type="text" id="barleiter" placeholder="Barleiter-Name" />
+      <input type="text" id="barname" placeholder="Barname" />
+      <input type="datetime-local" id="zeitpunkt" />
+      <button onclick="startApp()">Start</button>
+    </section>
+
+    <section id="menu" style="display:none;">
+      <h2>Inventur-Menü</h2>
+      <button onclick="navigate('anfang')">📦 Anfangsbestand</button>
+      <button onclick="navigate('nach')">➕ Nachlieferung</button>
+      <button onclick="navigate('abgabe')">➖ Abgabe</button>
+      <button onclick="navigate('ende')">📉 Endbestand</button>
+      <button onclick="exportCSV()">📄 Excel Export</button>
+      <button onclick="mailtoSend()">✉️ E-Mail senden</button>
+    </section>
+
+    <section id="entrySection" style="display:none;">
+      <h2 id="entryTitle">Bestandserfassung</h2>
+      <div id="productInputs"></div>
+      <button onclick="saveEntry()">Speichern & zurück zum Menü</button>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
